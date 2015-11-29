@@ -23,7 +23,6 @@ module.exports = React.createClass({
   },
 
   handleClick: function() {
-    alert('yo!');
     this.props.itemsStore.push({
       text: this.state.text,
       done: false
