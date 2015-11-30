@@ -23,7 +23,7 @@ module.exports = React.createClass({
   },
 
   handleClick: function() {
-    this.props.itemsStore.push({
+    this.props.firebase.push({
       text: this.state.text,
       done: false
     });
