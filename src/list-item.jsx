@@ -27,6 +27,7 @@ module.exports = React.createClass({
         className='form-control'
         value={this.state.text}
         onChange={this.handleEdit}
+        disabled={this.state.done}
       />
       <span className='input-group-btn'>
         {this.changesButtons()}
@@ -57,8 +58,8 @@ module.exports = React.createClass({
   changesButtons: function() {
     if(this.state.textChanged) {
       return [
-        <button className="btn btn-default" >Save</button>,
-        <button className="btn btn-default" >Undo</button>
+        <button className="btn btn-default" onClick={this.handleSaveClick}>Save</button>,
+        <button className="btn btn-default" onClick={this.handleUndoClick}>Undo</button>
       ]
     }
   },
@@ -69,6 +70,6 @@ module.exports = React.createClass({
   },
 
   handleUndoClick: function() {
-    this.setState({text: this.fb.text, textChanged: false});
+    this.setState({text: this.props.item.text, textChanged: false});
   }
 });
